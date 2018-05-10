@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/home/home",
-    "pages/index/index",
+    "pages/home/home",        
+    "pages/articles/articles",
     "pages/logs/logs",
-    "pages/articles/articles"
+    "pages/articles/articleDetails/articleDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,11 +16,11 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "Home"
+        "text": "眼前一亮"
       },
       {
         "pagePath": "pages/articles/articles",
-        "text": "Articles"
+        "text": "我的文章"
       }
     ]
   }

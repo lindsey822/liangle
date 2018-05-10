@@ -1,7 +1,33 @@
-<!--pages/home/home.wxml-->
-<text>pages/home/home.wxml</text>
+<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
 
-<view class="container">
+<block wx:else>
+    <view class="homeContainer">  
+        <image class="logo" src="../../assets/logo.svg"></image>
+    </view> 
+    <text class="title">
+      發表文章至眼前一亮，並分享二維碼在朋友圈，與小夥伴們體驗不同以往的深度交流。
+    </text>
+    <view class="item">
+      <text class="number">1</text>
+      <text class="sentence">前往網頁編輯器編寫文章</text>
+    </view>
+    <view class="item">
+      <text class="number">2</text>
+      <text class="sentence">前往網頁編輯器編寫文章</text>
+    </view>
+    <view class="item">
+      <text class="number">3</text>
+      <text class="sentence">前往網頁編輯器編寫文章</text>
+    </view>
+    <view class="item">
+      <text class="number">4</text>
+      <text class="sentence">前往網頁編輯器編寫文章</text>
+    </view>
+</block>
+
+<button bindtap="testPublishArticle">发表文章</button>
+
+<!-- <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -12,6 +38,6 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
-</view>
+</view> -->
 
-<button bindtap="testPublishArticle">发表文章</button>
+

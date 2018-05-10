@@ -1,5 +1,39 @@
-/* pages/articles/articles.wxss */
-.backend {
+.articleContainer {
+  display: flex;
+  flex-direction: column; 
+} 
+
+.articleSnapshot {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 20px;
+  margin-right: 6px;
+  border-bottom: 1px solid #b9b9b9;
+}
+
+.articleTitle {
+  margin-bottom: 8px;
+  height: 21px;
+}
+
+.articleBody {
   width: 100%;
-  white-space: normal;
+  font-size: 14px;
+  color: #b9b9b9;
+  height: 46px;
+  overflow-y: hidden;
+  margin-bottom: 9px;
+}
+
+.articleFooter {
+  display: flex;
+}
+
+.date {
+    font-size: 14px;
+    color: #b9b9b9;
+    height: 20px;
+    overflow: hidden;
 }

@@ -1,4 +1,3 @@
-// pages/articles/articles.js
 const app = getApp();
 const AV = require('../../libs/av-weapp-min');
 const { Article, getArticlesByAuthorQuery } = require('../../models/article');
@@ -6,12 +5,11 @@ const { Highlight, getHighlightsForArticle, getHighlightsForArticlesByAuthorQuer
 const { ArticleSnippet } = require('./dataClass/articleSnippet');
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    articleSnippets: ""
+    articleSnippets: [],
   },
 
   /**
@@ -143,8 +141,9 @@ Page({
         snippets.push(articleSnippet);
               });
         this.setData({
-          articleSnippets: JSON.stringify(snippets)
+          articleSnippets: snippets
         });
+        console.log(snippets);
         return new Promise(function (resolve, reject) {
           resolve(snippets);
         });
