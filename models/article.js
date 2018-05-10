@@ -25,6 +25,11 @@ class Article extends AV.Object {
   get publishDate() {
     return this.get('createdAt');
   }
+
+  get publishDateForDisplay() {
+    let date = new Date(this.get('createdAt'));
+    return date.toLocaleDateString('cn-CN');
+  }
 }
 
 AV.Object.register(Article, 'Article');

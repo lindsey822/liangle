@@ -1,5 +1,10 @@
-/* pages/home/home.wxss */
 .userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homeContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,6 +21,25 @@
   color: #aaa;
 }
 
-.usermotto {
-  margin-top: 20px;
+.logo {
+  width: 76px;
+  height: 76px;
+  margin-top: 30px;
+}
+
+.title {
+  display: block;
+  width: 80%;
+  margin: auto;
+  font-size: 14px;
+  color: #232a31;
+  margin-bottom: 50px;
+}
+
+.item {
+  display:flex;
+  width: 80%;
+  margin: auto;
+  font-size: 14px;
+  color: #232a31
 }

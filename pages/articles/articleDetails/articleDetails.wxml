@@ -1,0 +1,13 @@
+<view class='detailsContainer'>
+  <view class='header'>
+    <view class='headerText'>
+      <text class="title">{{title}}</text>
+      <text class="subTitle">{{author}}发表于{{date}}</text>
+    </view>
+    <button>分享</button>
+    <button>二维码</button>
+  </view>
+  <view class='body'>
+    {{body}}
+  </view>
+</view>

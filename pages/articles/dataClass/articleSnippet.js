@@ -1,6 +1,6 @@
 class ArticleSnippet {
-  constructor(articleId, title, bodySnippet, publishDate, highlightDrawerAvatars) {
-    this.articleId = articleId;
+  constructor(id, title, bodySnippet, publishDate, highlightDrawerAvatars) {
+    this.id = id;
     this.title = title;
     this.bodySnippet = bodySnippet;
     this.publishDate = publishDate;

@@ -1,6 +1,11 @@
-<!--pages/articles/articles.wxml-->
-<text>pages/articles/articles.wxml</text>
-
-<text>文章列表</text>
-
-<text class="backend">{{articleSnippets}}</text>
+<view class="articleContainer">
+<block wx:for="{{articleSnippets}}" key='id'>
+  <view class="articleSnapshot">
+    <navigator class="articleTitle" url="/pages/articles/articleDetails/articleDetails?id={{item.id}}">{{item.title}}</navigator>
+    <text class="articleBody">{{item.bodySnippet}}</text>
+    <view class="articleFooter">
+      <text class="date">发表于{{item.publishDate}} | {{item.highlightDrawerAvatars.length}}人划过重点</text>
+    </view>
+  </view>
+</block>
+</view>
