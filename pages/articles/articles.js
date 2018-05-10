@@ -106,26 +106,34 @@ Page({
         const highlights = values[0];
         const articles = values[1];
 
-        const articleHighlightMap = new Map();
+        const articleHighlightMap = new Map();// key = article id, value = ArticleHighlightsPair
         highlights.forEach(highlight => {
           const article = highlight.article;
-          if (articleHighlightMap.get(article)) {
-            articleHighlightMap.get(article).push(highlight);
+          if (articleHighlightMap.get(article.id)) {
+            articleHighlightMap.get(article.id).highlights.push(highlight);
           } else {
-            articleHighlightMap.set(article, [highlight]);
+            articleHighlightMap.set(article.id, {
+              article: article,
+              highlights: [highlight]
+            });
           }
         });
 
         articles.forEach(article => {
-          if (!articleHighlightMap.has(article)) {
-            articleHighlightMap.set(article, []);
+          if (!articleHighlightMap.has(article.id)) {
+            articleHighlightMap.set(article.id, {
+              article: article,
+              highlights: []
+            });
           }
         })
         console.log(articleHighlightMap);
         
         var snippets = [];
-        articleHighlightMap.forEach((highlights, article, map) => {
+        articleHighlightMap.forEach((pairs, articleId, map) => {
           var highlightDrawerAvatars = [];
+          const highlights = pairs.highlights;
+          const article = pairs.article;
           if (highlights && highlights.length) {
             highlights.forEach(highlight => {
               highlightDrawerAvatars.push(highlight.drawerAvater);
@@ -138,7 +146,7 @@ Page({
           articleSnippets: JSON.stringify(snippets)
         });
         return new Promise(function (resolve, reject) {
-          resolve(articleSnippets);
+          resolve(snippets);
         });
       })
       .catch(error => {
