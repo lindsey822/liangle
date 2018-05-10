@@ -21,18 +21,23 @@ class Article extends AV.Object {
   set body(value) {
     this.set('body', value);
   }
+
+  get publishDate() {
+    return this.get('createdAt');
+  }
 }
 
 AV.Object.register(Article, 'Article');
 
-const getArticlesByAuthor = function (author) {
+const getArticlesByAuthorQuery = function (author) {
   var query = new AV.Query('Article');
   query.equalTo('author', author);
-  // find 方法是一个异步方法，会返回一个 Promise，之后可以使用 then 方法
-  return query.find();
+  query.include(['title', 'body', 'createdAt', 'author']);
+  query.descending('createdAt');
+  return query;
 }
 
 module.exports = {
   Article,
-  getArticlesByAuthor
+  getArticlesByAuthorQuery
 };

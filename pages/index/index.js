@@ -1,6 +1,6 @@
 //index.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
 const { Article, getArticlesByAuthor} = require('../../models/article');
 
 Page({

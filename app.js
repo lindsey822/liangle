@@ -1,5 +1,6 @@
 // Lean Cloud Live Query
 const AV = require('./libs/av-weapp-min');
+const { WechatUser } = require('./models/wechatUser');
 
 const {
   APP_ID,
@@ -15,6 +16,9 @@ AV.init({
 
 //app.js
 App({
+  config: {
+    APP_NAME: "眼前一亮"
+  },
   onLaunch: function () {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
@@ -42,30 +46,53 @@ App({
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
+
+              this.initLeanCloudUser(res.userInfo);
             }
           })
         }
       }
     })
   },
+
+  /**
+   * global data
+   */
   globalData: {
-    userInfo: null,
-    user: null
+    userInfo: null,// Wechat's userInfo
+    user: null// LeanCloud WechatUser
   },
+
+  /**
+   * global custom function
+   */
   initLeanCloudUser: function (userInfo) {
     AV.Promise
       .resolve(AV.User.current())
       .then(currUser =>
         currUser ? (currUser.isAuthenticated().then(authed => authed ? currUser : null)) : null)
-      .then(currUser => currUser ? currUser : AV.User.loginWithWeapp())
+      .then(currUser => {
+        if (currUser) {
+          return currUser;
+        } else {
+          return AV.User.loginWithWeapp()
+            .then(user => {
+              // TODO check if this is new user, if not, don't create new WechatUser
+              user.set(userInfo);
+              const wechatUser = new WechatUser();
+              wechatUser.avatarUrl = userInfo.avatarUrl;
+              wechatUser.nickName = userInfo.nickName;
+              user.set('wechatUser', wechatUser);
+              return user.save();
+            })
+        }
+        })
       .then(user => {
-        user.set(userInfo)
-          .save()
-          .then(user => {
             // 成功，此时可在控制台中看到更新后的用户信息
-            this.globalData.user = user.toJSON();
-          })
-          .catch(console.error);
+            this.globalData.user = user.get('wechatUser');
+            if (this.userReadyCallback) {
+              this.userReadyCallback(wechatUser);
+            }
       })
       .catch(error => console.error(error.message));
   }

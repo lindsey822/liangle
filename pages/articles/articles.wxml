@@ -1,2 +1,6 @@
 <!--pages/articles/articles.wxml-->
 <text>pages/articles/articles.wxml</text>
+
+<text>文章列表</text>
+
+<text class="backend">{{articleSnippets}}</text>

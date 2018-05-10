@@ -1,1 +1,5 @@
 /* pages/articles/articles.wxss */
+.backend {
+  width: 100%;
+  white-space: normal;
+}
