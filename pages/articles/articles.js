@@ -139,7 +139,7 @@ Page({
               highlightDrawerAvatars.push(highlight.drawerAvater);
               });
           }
-          const articleSnippet = new ArticleSnippet(article.title, article.body.length > 200 ? article.body.substr(200) : article.body, article.createdAt, highlightDrawerAvatars);
+          const articleSnippet = new ArticleSnippet(article.id, article.title, article.body.length > 200 ? article.body.substr(200) : article.body, article.createdAt, highlightDrawerAvatars);
         snippets.push(articleSnippet);
               });
         this.setData({

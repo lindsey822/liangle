@@ -29,6 +29,12 @@ class Article extends AV.Object {
 
 AV.Object.register(Article, 'Article');
 
+const getArticleById = function (id) {
+  var query = new AV.Query('Article');
+  query.include(['title', 'body', 'createdAt', 'author']);
+  return query.get(id);
+}
+
 const getArticlesByAuthorQuery = function (author) {
   var query = new AV.Query('Article');
   query.equalTo('author', author);
@@ -39,5 +45,6 @@ const getArticlesByAuthorQuery = function (author) {
 
 module.exports = {
   Article,
+  getArticleById,
   getArticlesByAuthorQuery
 };
