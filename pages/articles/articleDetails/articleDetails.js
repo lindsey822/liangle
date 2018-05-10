@@ -20,7 +20,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // fetch article details here
+    wx.showNavigationBarLoading();
     const id = options.id;
     getArticleById(id)
     .then(article => {
@@ -30,7 +30,12 @@ Page({
         author: article.author.nickName,
         date: article.publishDateForDisplay
       });
-    })
+      const navBarTitle = article.title.length > 8 ? article.title.substr(0, 8) + "..." : article.title;
+      wx.setNavigationBarTitle({
+        title: navBarTitle
+      });
+      wx.hideNavigationBarLoading();
+    });
   },
 
   /**
@@ -76,9 +81,24 @@ Page({
   },
 
   /**
-   * 用户点击右上角分享
+   * 用户点击分享
    */
-  onShareAppMessage: function () {
-  
-  }
+  onShareAppMessage: function (options) {
+    return {};
+  },
+
+  // goToHome: function () {
+  //   wx.switchTab({
+  //     url: "../../home/home",
+  //     success: function () {
+  //       console.log("redirect to home success");
+  //     },
+  //     fail: function (e) {
+  //       console.log("redirect to home fail" + e);
+  //     },
+  //     complete: function () {
+  //       console.log("redirect to home complete");
+  //     }
+  //   });
+  // }
 })

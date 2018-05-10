@@ -1,35 +1,40 @@
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+<view class="container homeContainer">
+     <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    </block>  -->
+
+
+
+  <image class="logo" src="../../assets/logo.svg"></image>
+  <view class="title">
+    <text>发表文章到眼前一亮，与小伙伴们体验</text>
+      <text class="highlightedText">不同以往的深度交流。</text>
+    </view>
+
+    <view class="stepsContainer">
+  <view class="step">
+    <image class="number" src="../../assets/number1.svg"></image>
+    <text class="sentence">去网页编写文章</text>
   </view>
+  <view class="step">
+    <image class="number" src="../../assets/number2.svg"></image>
+    <text class="sentence">发表到眼前一亮</text>
+  </view>
+  <view class="step">
+    <image class="number" src="../../assets/number3.svg"></image>
+    <text class="sentence">分享你的文章给朋友或朋友圈</text>
+  </view>
+  <view class="step">
+    <image class="number" src="../../assets/number4.svg"></image>
+    <text class="sentence">邀请小伙伴们</text>
+<text class="sentence highlightedText">划高亮</text>
+<text class="sentence">一起互动</text>
+    
+  </view>
+  </view>
+
+
+  <button class="primaryButton" bindtap="testPublishArticle">去网页编写文章</button>
 </view>
-
-  <view class="homeContainer">
-    <image class="logo" src="../../assets/logo.svg"></image>
-  </view>
-  <text class="title">
-      發表文章至眼前一亮，並分享二維碼在朋友圈，與小夥伴們體驗不同以往的深度交流。
-    </text>
-  <view class="item">
-    <text class="number">1</text>
-    <text class="sentence">前往網頁編輯器編寫文章</text>
-  </view>
-  <view class="item">
-    <text class="number">2</text>
-    <text class="sentence">前往網頁編輯器編寫文章</text>
-  </view>
-  <view class="item">
-    <text class="number">3</text>
-    <text class="sentence">前往網頁編輯器編寫文章</text>
-  </view>
-  <view class="item">
-    <text class="number">4</text>
-    <text class="sentence">前往網頁編輯器編寫文章</text>
-  </view>
-
-
-<button bindtap="testPublishArticle">发表文章</button>

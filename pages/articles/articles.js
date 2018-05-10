@@ -16,6 +16,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: "我的文章"
+    });
+    wx.showNavigationBarLoading();
     if (app.globalData.user) {
       this.loadArticleSnippets(app.globalData.user);
     } else {
@@ -137,12 +141,13 @@ Page({
               highlightDrawerAvatars.push(highlight.drawerAvater);
               });
           }
-          const articleSnippet = new ArticleSnippet(article.id, article.title, article.body.length > 200 ? article.body.substr(200) : article.body, article.publishDateForDisplay, highlightDrawerAvatars);
+          const articleSnippet = new ArticleSnippet(article.id, article.title, article.body.length > 100 ? article.body.substr(0, 100) + "..." : article.body, article.publishDateForDisplay, highlightDrawerAvatars);
         snippets.push(articleSnippet);
               });
         this.setData({
           articleSnippets: snippets
         });
+        wx.hideNavigationBarLoading();
         console.log(snippets);
         return new Promise(function (resolve, reject) {
           resolve(snippets);

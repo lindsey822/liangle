@@ -1,11 +1,16 @@
-<view class="articleContainer">
-<block wx:for="{{articleSnippets}}" key='id'>
-  <view class="articleSnapshot">
-    <navigator class="articleTitle" url="/pages/articles/articleDetails/articleDetails?id={{item.id}}">{{item.title}}</navigator>
-    <text class="articleBody">{{item.bodySnippet}}</text>
+<view class="container">
+<block wx:for="{{articleSnippets}}" wx:for-item="snippet" key='id'>
+  <navigator class="articleSnapshot" url="/pages/articles/articleDetails/articleDetails?id={{snippet.id}}">
+    <text class="articleTitle">{{snippet.title}}</text>
+    <text class="articleBody">{{snippet.bodySnippet}}</text>
     <view class="articleFooter">
-      <text class="date">发表于{{item.publishDate}} | {{item.highlightDrawerAvatars.length}}人划过重点</text>
+      <text class="date">发表于{{snippet.publishDate}}</text>
+      <text class="separator">|</text>
+      <text>{{snippet.highlightDrawerAvatars.length}}人眼前一亮</text>
+      <block class="avatarList" wx:for="{{snippet.highlightDrawerAvatars}}" wx:for-item="avatarUrl">
+  <image class="avatar" src="{{avatarUrl}}" background-size="cover"></image>
+</block>
     </view>
-  </view>
+  </navigator>
 </block>
 </view>

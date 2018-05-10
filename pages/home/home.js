@@ -10,7 +10,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
@@ -25,11 +24,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.setNavigationBarTitle({
+      title: app.config.APP_NAME
+    });
+    wx.showNavigationBarLoading();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
-      })
+      });
+      wx.hideNavigationBarLoading();
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -37,7 +41,8 @@ Page({
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
-        })
+        });
+        wx.hideNavigationBarLoading();
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -49,6 +54,7 @@ Page({
             hasUserInfo: true
           });
           app.initLeanCloudUser(res.userInfo);
+          wx.hideNavigationBarLoading();
         }
       })
     }
@@ -64,6 +70,7 @@ Page({
         hasUserInfo: true
       });
       app.initLeanCloudUser(userInfoFromRes);
+      wx.hideNavigationBarLoading();
     } else {
       console.log(errorMessage);
     }
@@ -129,8 +136,8 @@ Page({
         const article = new Article();
         article.author = currUser.attributes.wechatUser;
         var rand = Math.floor(Math.random() * 20);
-        article.title = "test title" + rand;
-        article.body = "test body..."+ rand;
+        article.title = "留学申请攻略" + rand;
+        article.body = "由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。"+ rand;
 
         const highlight = new Highlight();
         highlight.article = article;

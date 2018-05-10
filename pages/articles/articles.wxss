@@ -1,39 +1,48 @@
-.articleContainer {
-  display: flex;
-  flex-direction: column; 
-} 
-
 .articleSnapshot {
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-left: 20px;
-  margin-right: 6px;
-  border-bottom: 1px solid #b9b9b9;
+  padding-top: 36rpx;
+  padding-bottom: 36rpx;
+  padding-left: 36rpx;
+  border-bottom: 1rpx solid #f9f9f9;
 }
 
 .articleTitle {
-  margin-bottom: 8px;
-  height: 21px;
+  margin-bottom: 10rpx;
+  margin-right: 6rpx;
 }
 
 .articleBody {
   width: 100%;
-  font-size: 14px;
+  font-size: 35rpx;
   color: #b9b9b9;
-  height: 46px;
-  overflow-y: hidden;
-  margin-bottom: 9px;
+  overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 3; /* number of lines to show */
+  margin-bottom: 16rpx;
+  margin-right: 6rpx;
 }
 
 .articleFooter {
   display: flex;
+  color: #cecece;
+  font-size: 35rpx;
+  margin-right: 6rpx;
 }
 
-.date {
-    font-size: 14px;
-    color: #b9b9b9;
-    height: 20px;
-    overflow: hidden;
+.separator {
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+}
+
+.avatarList {
+  margin-left: 16rpx;
+}
+
+.avatar {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
 }

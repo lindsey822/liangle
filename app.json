@@ -7,20 +7,27 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black",
+    "navigationBarBackgroundColor": "#56cfa2",
+    "navigationBarTitleText": "眼前一亮",
+    "navigationBarTextStyle": "white",
     "enablePullDownRefresh": true
   },
   "tabBar": {
+    "color": "#232a31",
+    "selectedColor": "#56cfa2",
+    "backgroundColor": "white",
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "眼前一亮"
+        "text": "眼前一亮",
+        "iconPath": "assets/tab1_black.png",
+        "selectedIconPath": "assets/tab1_green.png"
       },
       {
         "pagePath": "pages/articles/articles",
-        "text": "我的文章"
+        "text": "我的文章",
+        "iconPath": "assets/tab2_black.png",
+        "selectedIconPath": "assets/tab2_green.png"
       }
     ]
   }
