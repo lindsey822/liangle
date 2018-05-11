@@ -21,7 +21,9 @@ Page({
    */
   onLoad: function (options) {
     wx.showNavigationBarLoading();
+
     const id = options.id;
+
     getArticleById(id)
     .then(article => {
       this.setData({
@@ -34,6 +36,10 @@ Page({
       wx.setNavigationBarTitle({
         title: navBarTitle
       });
+      return getHighlightsForArticle(article);
+    })
+    .then(highlights => {
+      console.log(highlights);
       wx.hideNavigationBarLoading();
     });
   },
@@ -87,18 +93,10 @@ Page({
     return {};
   },
 
-  // goToHome: function () {
-  //   wx.switchTab({
-  //     url: "../../home/home",
-  //     success: function () {
-  //       console.log("redirect to home success");
-  //     },
-  //     fail: function (e) {
-  //       console.log("redirect to home fail" + e);
-  //     },
-  //     complete: function () {
-  //       console.log("redirect to home complete");
-  //     }
-  //   });
-  // }
+  previewImage: function (e) {
+  wx.previewImage({
+    urls: "http://lc-gfg4xp03.cn-n1.lcfile.com/8f83522d8aace48afb26.png".split(',')
+      // 需要预览的图片http链接  使用split把字符串转数组。不然会报
+  });
+  }
 })

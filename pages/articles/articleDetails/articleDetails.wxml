@@ -9,7 +9,7 @@
     <text class="subTitle">分享</text>
     </view>
     <view class="shareButtonContainer">
-    <button class="shareButton shareByQrCodeIcon"></button>
+    <button class="shareButton shareByQrCodeIcon" bindtap="previewImage"></button>
     <text class="subTitle">二维码</text>
     </view>
   </view>
