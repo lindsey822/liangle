@@ -24,7 +24,7 @@
 
 text {
   font-size: 35rpx;
-  color: #232a31;
+  color: #232a31; 
 }
 
 .logo {
@@ -44,17 +44,25 @@ text {
 .stepsContainer {
   display:flex;
   flex-direction: column;
-  margin-right: auto;
   width: 80%;
   margin-bottom: 80rpx;
+  align-items: center;
 }
 
 .step {
-  margin-bottom: 30rpx;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.step .number {
+.number {
   width: 40rpx;
   height: 40rpx;
   margin-right: 30rpx;
+}
+
+.connector {
+  height: 40rpx;
+  width: 40rpx;
+  margin-right: auto;
 }

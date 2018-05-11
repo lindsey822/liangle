@@ -15,23 +15,25 @@
 
     <view class="stepsContainer">
   <view class="step">
-    <image class="number" src="../../assets/number1.svg"></image>
-    <text class="sentence">去网页编写文章</text>
+      <image class="number" src="../../assets/number1.svg"></image>
+      <text class="sentence">去网页编写文章</text>
   </view>
+  <image class="connector" src="../../assets/number_line.svg"></image>
   <view class="step">
     <image class="number" src="../../assets/number2.svg"></image>
     <text class="sentence">发表到眼前一亮</text>
   </view>
+  <image class="connector" src="../../assets/number_line.svg"></image>
   <view class="step">
     <image class="number" src="../../assets/number3.svg"></image>
     <text class="sentence">分享你的文章给朋友或朋友圈</text>
   </view>
+  <image class="connector" src="../../assets/number_line.svg"></image>
   <view class="step">
     <image class="number" src="../../assets/number4.svg"></image>
     <text class="sentence">邀请小伙伴们</text>
-<text class="sentence highlightedText">划高亮</text>
-<text class="sentence">一起互动</text>
-    
+    <text class="sentence highlightedText">划高亮</text>
+    <text class="sentence">一起互动</text>
   </view>
   </view>
 

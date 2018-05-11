@@ -1,8 +1,5 @@
 .articleContainer {
-  margin-left: 36rpx;
-  margin-right: 36rpx;
-  margin-top: 36rpx;
-  margin-bottom: 36rpx;
+  margin: 36rpx 36rpx;
 }
 
 .header {
@@ -37,20 +34,26 @@
 }
 
 .shareButton {
-   /* background-color: #cecece;  */
-   border: 1rpx solid #cecece;
-   border-radius: 50%; 
+   background-color: rgba(0,0,0,0.1);
+   border-radius: 50%;
+   padding: 0;
+   width: 100rpx;
+   height: 100rpx;
+   margin-bottom: 10rpx;
+   border: 0;
+}
+
+/* .shareToFriendsIcon {
+  background: url("http://lc-gfg4xp03.cn-n1.lcfile.com/dd059f8449e507c4a32f.svg") center no-repeat;
+} */
+
+/* .shareByQrCodeIcon {
+  background: url("http://lc-gfg4xp03.cn-n1.lcfile.com/f493ccfbf9a452ce4719.svg") center no-repeat;
+} */
+
+.shareToFriendsIcon, .shareByQrCodeIcon {
   width: 100rpx;
   height: 100rpx;
-  margin-bottom: 10rpx;
-}
-
-.shareToFriendsIcon {
-  background: url("http://lc-gfg4xp03.cn-n1.lcfile.com/dd059f8449e507c4a32f.svg") center no-repeat;
-}
-
-.shareByQrCodeIcon {
-  background: url("http://lc-gfg4xp03.cn-n1.lcfile.com/f493ccfbf9a452ce4719.svg") center no-repeat;
 }
 
 .body {

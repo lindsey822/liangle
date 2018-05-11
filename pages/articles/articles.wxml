@@ -8,8 +8,8 @@
       <text class="separator">|</text>
       <text>{{snippet.highlightDrawerAvatars.length}}人眼前一亮</text>
       <block class="avatarList" wx:for="{{snippet.highlightDrawerAvatars}}" wx:for-item="avatarUrl">
-  <image class="avatar" src="{{avatarUrl}}" background-size="cover"></image>
-</block>
+          <image class="avatar" src="{{avatarUrl}}" background-size="cover"></image>
+      </block>
     </view>
   </navigator>
 </block>

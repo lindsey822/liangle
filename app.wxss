@@ -10,7 +10,7 @@
 }
 
 .highlightedText {
-  background-color: #fff798;
+  background-color: rgba(255, 247, 152, 0.75);
 }
 
 .primaryButton {
@@ -24,5 +24,5 @@
 .articleTitle {
   font-weight: bold;
   color: #222222;
-  font-size: 40rpx;
+  font-size: 34rpx;
 }
